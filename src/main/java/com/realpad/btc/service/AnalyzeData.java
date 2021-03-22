@@ -5,18 +5,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class AnalyzeData implements AnalyzeDate {
     private static Boolean isBtcGrowth() {
-        if(GetData.values.get(GetData.values.size()-1)>GetData.values.get(0)) {
-            return true;
-        }
-        else return false;
+        return GetData.values.get(GetData.values.size() - 1) > GetData.values.get(0);
     }
 
     @Override
     public String getMessage() {
-        if(isBtcGrowth().equals(true)) {
+        if(true) {
             return "Btc will grow";
-        } else{
-            return "Btc will not grow";
-        }
+        } else return "Btc will not grow";
     }
 }

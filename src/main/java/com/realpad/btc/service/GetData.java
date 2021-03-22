@@ -18,8 +18,8 @@ public class GetData {
     static Logger log = Logger.getLogger(GetData.class.getName());
 
     private static Map<Object, Object> map = null;
-    private static List<List<Map<Object, Object>>> list = new ArrayList<List<Map<Object, Object>>>();
-    private static List<Map<Object, Object>> dataPoints1 = new ArrayList<Map<Object, Object>>();
+    private static List<List<Map<Object, Object>>> list = new ArrayList<>();
+    private static List<Map<Object, Object>> dataPoints = new ArrayList<>();
     static List<Double> values = new ArrayList<Double>();
 
     private static final String startData = "2021-03-11";
@@ -31,13 +31,13 @@ public class GetData {
         Map<String, String> resultFromJson = getMapFromJson(json);
 
         for (Map.Entry<String, String> entry : resultFromJson.entrySet()) {
-            map = new HashMap<Object, Object>();
+            map = new HashMap<>();
             map.put("x", entry.getKey().substring(8));
             map.put("y", entry.getValue());
-            dataPoints1.add(map);
+            dataPoints.add(map);
             values.add(Double.parseDouble(String.valueOf(entry.getValue())));
         }
-        list.add(dataPoints1);
+        list.add(dataPoints);
     }
 
     private static Map<String, String> getMapFromJson(JSONObject json) {

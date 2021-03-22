@@ -8,8 +8,8 @@ import com.realpad.btc.service.CanvasjsChartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/canvasjschart")
@@ -21,7 +21,7 @@ public class CanvasjsChartController {
     @Autowired
     private AnalyzeDate analyzeDate;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String springMVC(ModelMap modelMap) {
         List<List<Map<Object, Object>>> canvasjsDataList = canvasjsChartService.getCanvasjsChartData();
         modelMap.addAttribute("dataPointsList", canvasjsDataList);
